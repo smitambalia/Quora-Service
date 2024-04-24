@@ -21,6 +21,14 @@ class QuestionService {
             throw new error;
         }
     }
+    async postAnswerToQuestion(questionId,userId,text) {
+        try {
+            const answer = await this.questionRepository.postAnswerToQuestion(questionId,userId,text);
+            return answer;
+        } catch (error) {
+            throw new error;
+        }
+    }
 }
 
 module.exports = QuestionService
