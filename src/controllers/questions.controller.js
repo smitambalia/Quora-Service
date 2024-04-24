@@ -53,11 +53,11 @@ async function searchQuestion(req, res, next) {
 
 async function postAnAnswerToQuestion(req, res, next) {
   try {
-    console.log("QuestionID:",req,params.questionId);
-    console.log("userId:",req,body.userId);
-    console.log("text:",req,body.text);
-
-    const answer = await this.questionService.postAnAnswerToQuestion(
+    console.log("QuestionID:",req.params.questionId);
+    console.log("userId:",req.body.userId);
+    console.log("text:",req.body.text);
+    
+    const answer = await questionService.postAnswerToQuestion(
       req.params.questionId,
       req.body.userId,
       req.body.text
