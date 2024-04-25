@@ -13,6 +13,16 @@ class AnswerService {
     }
     return answer;
   }
+
+  async addCommentOnAnswer(answerId,answerData) {
+
+    const comment = await this.answerRepository.addCommentOnAnswer(
+      answerId,
+      answerData
+    );
+    if(!comment) throw new NotFoundError("answerID",answerId);
+    return comment;
+  }
 }
 
 module.exports = AnswerService;

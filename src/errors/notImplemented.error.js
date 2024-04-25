@@ -3,7 +3,7 @@ const { StatusCodes } = require("http-status-codes");
 class NotImplementedError extends BaseError {
   constructor(methodName) {
     super(
-      "NotImplementedErro",
+      "NotImplementedError",
       StatusCodes.NOT_IMPLEMENTED,
       `${methodName} method is not implemented`,
       {}
