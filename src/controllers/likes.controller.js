@@ -26,7 +26,7 @@ async function likeCommentQuestionComment(req, res, next) {
         success : true,
         message : "Successfully liked to question, answer, or comment",
         error : {},
-        data : like
+        data : []
     })
   } catch (error) {
     next(error);
