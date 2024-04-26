@@ -41,7 +41,6 @@ async function getUser(req, res, next) {
 async function updateUser(req, res, next) {
   try {
     const user = await userService.updateUser(req.params.id, req.body);
-    console.log(req.body);
     return res.status(StatusCodes.OK).json({
       success: true,
       message: "Successfully update the user profile!",
