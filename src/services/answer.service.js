@@ -20,6 +20,7 @@ class AnswerService {
       answerId,
       answerData
     );
+    console.log("Comment : ", comment)
     if(!comment) throw new NotFoundError("answerID",answerId);
     return comment;
   }

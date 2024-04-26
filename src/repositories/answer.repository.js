@@ -17,7 +17,9 @@ class AnswerRepository {
   async addCommentOnAnswer(answerId, commentData) {
     try {
       const getAnswer = await Answer.findById(answerId);
-      if (!getAnswer) {
+      if (getAnswer) {
+      console.log("Get Answer :", getAnswer, " For ID:", answerId)
+
         const addComment = await Comment.create({
           userId: commentData.userId,
           text: commentData.text,
@@ -25,7 +27,7 @@ class AnswerRepository {
         });
         return addComment;
       }
-      throw new error
+      return false;
     } catch (error) {
       throw new error();
     }
