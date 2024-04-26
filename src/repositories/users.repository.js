@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Follow } = require("../models");
 
 class UserRepository {
   async addUser(userData) {
@@ -37,7 +37,33 @@ class UserRepository {
     }
   }
 
-  
+  async followAUser(userId, targetUserId) {
+    try {
+      const submitterUser = await User.findById(userId);
+      if (!submitterUser)
+        return {
+          success: false,
+          resource: "userId",
+        };
+
+      const targetUser = await User.findById(targetUserId);
+      if (!targetUser)
+        return {
+          success: false,
+          resource: "targetUserId",
+        };
+
+      await Follow.create({
+        userId,
+        targetUserId,
+      });
+      return {
+        success: true,
+      };
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 module.exports = UserRepository;
